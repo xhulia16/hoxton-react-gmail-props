@@ -17,6 +17,7 @@ function App() {
   const [emails, setEmails] = useState(initialEmails);
   const [hideRead, setHideRead] = useState(false);
   const [currentTab, setCurrentTab] = useState("inbox");
+  const [query, setQuery] = useState("")
 
   const unreadEmails = emails.filter((email) => !email.read);
   const starredEmails = emails.filter((email) => email.starred);
@@ -53,10 +54,12 @@ function App() {
     return filteredEmails;
   }
 
-
   return (
     <div className="app">
-      <Header />
+      <Header 
+      query={query}
+      setQuery={setQuery}
+      />
 
       <LeftMenu
         currentTab={currentTab}
