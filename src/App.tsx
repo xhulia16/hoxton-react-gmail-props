@@ -16,12 +16,14 @@ const getStarredEmails = (emails: Email[]) =>
 function App() {
   const [emails, setEmails] = useState(initialEmails);
   const [hideRead, setHideRead] = useState(false);
-  const [currentTab, setCurrentTab] = useState("inbox");
-  const [query, setQuery] = useState("")
+  const [currentTab, setCurrentTab] = useState("inbox"); 
+  const [query, setQuery] = useState("");
+  const [searchResult, setSearchResults]=useState([]);
 
   const unreadEmails = emails.filter((email) => !email.read);
   const starredEmails = emails.filter((email) => email.starred);
-
+  const searchedEmails= emails.filter((email)=> email.title.toLowerCase().includes(query.toLowerCase()))
+  
   const toggleStar = (targetEmail: Email) => {
     const updatedEmails = (emails: Array<Email>) =>
       emails.map((email) =>
@@ -40,11 +42,6 @@ function App() {
     setEmails(updatedEmails);
   };
 
-  const getSearchEmail = (emails: Email[]) => {
-    emails.filter((email) =>
-     email.title.toLowerCase().includes(query.toLowerCase()))
-}
-getSearchEmail(emails)
 
   function getFilteredEmails(): Array<Email> {
     let filteredEmails = emails;
@@ -57,9 +54,6 @@ getSearchEmail(emails)
       filteredEmails = getStarredEmails(filteredEmails);
     }
 
-   //if (query) {
-    //  filteredEmails = getSearchEmail(filteredEmails);
-   //}
 
     return filteredEmails;
   }
@@ -67,9 +61,9 @@ getSearchEmail(emails)
   return (
     <div className="app">
       <Header 
-      query={query}
+      query={query} 
       setQuery={setQuery}
-      />
+       />
 
       <LeftMenu
         currentTab={currentTab}
@@ -81,9 +75,9 @@ getSearchEmail(emails)
       />
 
       <EmailList
-      getFilteredEmails={getFilteredEmails}
-      toggleRead={toggleRead}
-      toggleStar={toggleStar}
+        getFilteredEmails={getFilteredEmails}
+        toggleRead={toggleRead}
+        toggleStar={toggleStar}
       />
     </div>
   );
