@@ -40,6 +40,12 @@ function App() {
     setEmails(updatedEmails);
   };
 
+  const getSearchEmail = (emails: Email[]) => {
+    emails.filter((email) =>
+     email.title.toLowerCase().includes(query.toLowerCase()))
+}
+getSearchEmail(emails)
+
   function getFilteredEmails(): Array<Email> {
     let filteredEmails = emails;
 
@@ -50,6 +56,10 @@ function App() {
     if (currentTab === "starred") {
       filteredEmails = getStarredEmails(filteredEmails);
     }
+
+   //if (query) {
+    //  filteredEmails = getSearchEmail(filteredEmails);
+   //}
 
     return filteredEmails;
   }
