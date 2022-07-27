@@ -1,5 +1,5 @@
  // @ts-ignore
-function LeftMenu(currentTab, setCurrentTab, unreadEmails, starredEmails, hideRead, setHideRead)
+function LeftMenu({currentTab, setCurrentTab, unreadEmails, starredEmails, hideRead, setHideRead})
 {
     return(
         <nav className="left-menu">

@@ -7,7 +7,7 @@ type Email={
     read: boolean;
 }
  // @ts-ignore
-function Main({getFilteredEmails}, toggleRead, toggleStar){
+function Main({getFilteredEmails, toggleRead, toggleStar}){
     return(
         <main className="emails">
         <ul>
