@@ -5,7 +5,7 @@ import initialEmails, { Email } from "./data/emails";
 import "./App.css";
 import Header from "./components/header";
 import LeftMenu from "./components/LeftMenu";
-import Main from "./components/main";
+import EmailList from "./components/EmailList";
 
 const getReadEmails = (emails: Email[]) =>
   emails.filter((email) => !email.read);
@@ -67,12 +67,10 @@ function App() {
         setHideRead={setHideRead}
       />
 
-      <Main 
+      <EmailList
       getFilteredEmails={getFilteredEmails}
       toggleRead={toggleRead}
       toggleStar={toggleStar}
-  
-
       />
     </div>
   );

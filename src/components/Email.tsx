@@ -1,22 +1,11 @@
-type Index=number
-type Email={
-    id: number;
-    sender: string;
-    title: string;
-    starred: boolean;
-    read: boolean;
-}
  // @ts-ignore
-function Main({getFilteredEmails, toggleRead, toggleStar}){
+function EmailItem({email, toggleRead, toggleStar, index}){
     return(
-        <main className="emails">
-        <ul>
-          {getFilteredEmails().map((email:Email, index:Index) => (
-            <li
-              key={index}
-              className={`email ${email.read ? "read" : "unread"}`}
-            >
-              <div className="select">
+        <li
+        key={index}
+        className={`email ${email.read ? "read" : "unread"}`}
+      >
+<div className="select">
                 <input
                   className="select-checkbox"
                   type="checkbox"
@@ -34,11 +23,8 @@ function Main({getFilteredEmails, toggleRead, toggleStar}){
               </div>
               <div className="sender">{email.sender}</div>
               <div className="title">{email.title}</div>
-            </li>
-          ))}
-        </ul>
-      </main>
+</li>
     )
 }
 
-export default Main
+export default EmailItem
