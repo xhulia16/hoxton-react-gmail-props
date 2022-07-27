@@ -1,3 +1,5 @@
+import "./LeftMenu.css";
+ 
  // @ts-ignore
 function LeftMenu({currentTab, setCurrentTab, unreadEmails, starredEmails, hideRead, setHideRead})
 {

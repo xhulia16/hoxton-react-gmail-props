@@ -1,3 +1,5 @@
+ import './Email.css'
+ 
  // @ts-ignore
 function EmailItem({email, toggleRead, toggleStar, index}){
     return(

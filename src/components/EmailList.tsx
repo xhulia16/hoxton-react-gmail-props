@@ -1,3 +1,5 @@
+import "./EmailList.css";
+
 import EmailItem from "./Email";
 
 type Index=number
