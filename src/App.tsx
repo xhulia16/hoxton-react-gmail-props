@@ -18,12 +18,10 @@ function App() {
   const [hideRead, setHideRead] = useState(false);
   const [currentTab, setCurrentTab] = useState("inbox"); 
   const [query, setQuery] = useState("");
-  const [searchResult, setSearchResults]=useState([]);
 
   const unreadEmails = emails.filter((email) => !email.read);
   const starredEmails = emails.filter((email) => email.starred);
-  const searchedEmails= emails.filter((email)=> email.title.toLowerCase().includes(query.toLowerCase()))
-  
+
   const toggleStar = (targetEmail: Email) => {
     const updatedEmails = (emails: Array<Email>) =>
       emails.map((email) =>
@@ -53,6 +51,7 @@ function App() {
     if (currentTab === "starred") {
       filteredEmails = getStarredEmails(filteredEmails);
     }
+filteredEmails=emails.filter((email)=> email.title.toLowerCase().includes(query.toLowerCase()))
 
 
     return filteredEmails;
@@ -61,7 +60,6 @@ function App() {
   return (
     <div className="app">
       <Header 
-      query={query} 
       setQuery={setQuery}
        />
 
