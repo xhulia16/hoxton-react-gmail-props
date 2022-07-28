@@ -2,7 +2,7 @@
 import "./header.css";
 import {useState} from "react";
 
-function Header({query, setQuery}){
+function Header({setQuery}){
 
     return( 
     <header className="header">
@@ -18,8 +18,7 @@ function Header({query, setQuery}){
 
     <div className="search">
       <input className="search-bar" placeholder="Search mail" 
-      onChange={event => {setQuery(event.target.value), 
-      console.log(query)}} 
+      onChange={event => {setQuery(event.target.value)}} 
       />
     </div>
   </header> )
